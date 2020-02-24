@@ -1,0 +1,43 @@
+1. Dont need class to create objects
+2. Object = hash / map 
+       collection of key / value pairs
+3. Objects are dynamic
+        method = an attribute whose value is a function
+4. function is an object
+        can be assigned to variables
+        can have attributes
+        can have methods
+        can be passed as arguments to other functions
+        can be returned as a return value
+
+5. this context
+    => invocation context
+    => not based on where the function is, but how the function is invoked
+        -> invoked as a method of an obj, this -> obj
+        -> invoked as a function, this -> global scope
+
+6. Functions can be invoked as Immediately Invoked Function Expression
+
+7. closures
+     private state
+
+
+ES6 ( ECMAScript6, ES2015 )
+1. let
+2. const
+3. array destructuring
+4. rest operator (array)
+5. spread operator (array)
+6. object destructuring
+7. rest operator (object)
+8. spread operator (object)
+9. default arguments
+10. arrow functions
+11. template strings
+12. symbol
+13. classes
+
+http://www.es6-features.org
+
+babel
+
