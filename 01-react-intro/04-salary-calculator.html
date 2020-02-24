@@ -73,9 +73,9 @@
             }
         }
 
-        class SalaryCalculatorInput extends React.Component{
-            render = () => {
-                const { labelText, onValueChange, type="number", ...attrs } = this.props;
+        //class SalaryCalculatorInput extends React.Component{
+        const SalaryCalculatorInput = (props) => {
+                const { labelText, onValueChange, type="number", ...attrs } = props;
                 return(
                     <div className="field">
                         <label htmlFor="">{labelText}</label>
@@ -87,11 +87,11 @@
                     </div>
                 )
             }
-        }
+        //}
 
-        class SalaryCalculatorResult extends React.Component{
-            render = () => {
-                const { data } = this.props,
+        //Higher Order Component
+        const SalaryCalculatorResult = (props) => {
+                const { data } = props,
                     { basic, hra, da, tax, salary } = data;
                 const salaryEle = salary < 10000 ? (<td className="poorSalary">{salary}</td>) : (<td className="goodSalary">{salary}</td>)
                 return(
@@ -110,7 +110,7 @@
                     </div>
                 )
             }
-        }
+        
 
         ReactDOM.render(<SalaryCalculator />,
             document.getElementById('root'))
