@@ -16,9 +16,15 @@
     <script src="babel.min.js"></script>
     <script type="text/babel">
         class Counter extends React.Component{
-            state = { counter : 0 } ;
+            state = { 
+                counter : 0,
+                delta : 0
+            } ;
             onBtnIncrementClick = () => {
-                this.setState({ counter : ++this.state.counter});
+                this.setState({ counter : this.state.counter + this.state.delta});
+            }
+            onDeltaChange = (evt) => {
+                this.setState({ delta : evt.target.valueAsNumber });
             }
             //presentation
             render = () => {
@@ -27,6 +33,8 @@
                     <div>
                         <h1>Welcome to React.js</h1>
                         <div>
+                            <label htmlFor="">Delta :</label>
+                            <input type="number" onChange={this.onDeltaChange}/>
                             <input type="button" value="Increment" onClick={this.onBtnIncrementClick}/>
                             <br/>
                             <span>V-DOM Counter : </span>
