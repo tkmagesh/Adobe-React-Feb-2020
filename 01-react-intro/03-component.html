@@ -16,14 +16,13 @@
     <script src="babel.min.js"></script>
     <script type="text/babel">
         class Counter extends React.Component{
-
+            state = { counter : 0 } ;
             onBtnIncrementClick = () => {
-                console.log('increment button clicked');
+                this.setState({ counter : ++this.state.counter});
             }
-
             //presentation
             render = () => {
-                let counter = 0;
+               
                 return (
                     <div>
                         <h1>Welcome to React.js</h1>
@@ -31,7 +30,7 @@
                             <input type="button" value="Increment" onClick={this.onBtnIncrementClick}/>
                             <br/>
                             <span>V-DOM Counter : </span>
-                            <span className="highlight">{counter}</span>
+                            <span className="highlight">{this.state.counter}</span>
                         </div>
                     </div>
                 );
