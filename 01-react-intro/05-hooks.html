@@ -30,22 +30,24 @@
             }
         } */
 
+        //useEffects, useReducer
         function useGreeterState(defaultUserName, defaultMessage){
             const [userNameValue, setUserName] = React.useState(defaultUserName);
             const [messageValue, setMessage] = React.useState(defaultMessage);
+            const onGreetClick = () => {
+                setMessage(`Hi ${userNameValue}, Have a nice day!`);
+            };
             return {
                 userName : [userNameValue, setUserName],
-                message : [messageValue, setMessage]
+                message : [messageValue, setMessage],
+                onGreetClick : onGreetClick
             };
         }
 
         const Greeter = (props) => {
-            const { userName, message } = useGreeterState('Magesh', '[Default Greet Message]');
+            const { userName, message, onGreetClick } = useGreeterState('Magesh', '[Default Greet Message]');
             const [userNameValue, setUserName ] = userName;
             const [messageValue, setMessage ] = message;
-            const onGreetClick = () => {
-                setMessage(`Hi ${userNameValue}, Have a nice day!`);
-            };
             return(
                 <div>
                     <label htmlFor="">User Name :</label>
