@@ -8,6 +8,11 @@
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
+    <style>
+        .stats{
+            font-size: 18pt;
+        }
+    </style>
     <script type="text/babel">
         class Products extends React.Component{
             state = { 
@@ -24,12 +29,14 @@
 
                 return(
                     <div>
+                        
                         <label htmlFor="">Product Name :</label>
                         <input type="text" onChange={evt => this.setState({newProductName : evt.target.value})}/>
                         <input type="button" value="Add New" onClick={this.onAddNewClick} />
                         <ol>
                             {productItems}
                         </ol>
+                       
                     </div>
                 )
             }
@@ -41,6 +48,11 @@
 </head>
 <body>
     <h1>Products</h1>
+    <hr>
+    <div className="stats">
+        <span>Products Count : </span>
+        <span>{this.state.productList.length}</span>
+    </div>
     <hr>
     <div id="root">
         
