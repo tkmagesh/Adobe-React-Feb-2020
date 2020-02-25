@@ -1,7 +1,7 @@
 let StateManager = (function(){
     let _currentState = undefined,
         _callbacks = [],
-        _init_action = '@@INIT/ACTION',
+        _init_action = { type : '@@INIT/ACTION' },
         _reducer = undefined
 
     function getState(){
@@ -13,7 +13,11 @@ let StateManager = (function(){
     }
 
     function notifyStateChange(){
-        _callbacks.forEach(callback => callback());
+        //_callbacks.forEach(callback => callback());
+        for (let index = 0; index < _callbacks.length; index++) {
+            const callback = _callbacks[index];
+            callback();
+        }
     }
 
     function dispatch(action){
