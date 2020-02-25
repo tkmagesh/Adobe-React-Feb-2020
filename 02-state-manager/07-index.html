@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>State Manager</title>
+    <script src="state-manager.js"></script>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+    function spinnerReducer(currentState = 0, action){
+        if (action.type === 'UP') return currentState + 1;
+        if (action.type === 'DOWN') return currentState - 1;
+        return currentState;
+    }
+    
+    var store = StateManager.createStore(spinnerReducer)
+    
+    /* generalizing bindSpinnerActionCreators to 'bindActionCreators' */
+
+    const spinnerActionCreators = {
+        up(){
+            const action = { type : 'UP'};
+            return action;
+        },
+        down(){
+            const action = { type : 'DOWN'};
+            return action;
+        }
+    }
+    
+    const spinnerActionDispatchers = StateManager.bindActionCreators(spinnerActionCreators, store.dispatch);
+
+    class Spinner extends React.Component{
+        onDownClick = () => {
+            this.props.down();
+        }
+        onUpClick = () => {
+            this.props.up();
+        }
+        render = () => {
+            const value = this.props.value;
+            return(
+                <div>
+                    <input type="button" value="Down" onClick={this.onDownClick} />
+                    <span> [ {value} ] </span>
+                    <input type="button" value="Up" onClick={this.onUpClick} />
+                </div>
+            )
+        }
+    }
+    function renderApp(){
+        const value = store.getState();
+        ReactDOM.render(
+            <Spinner value={value} {...spinnerActionDispatchers}/>
+            , document.getElementById('root'));
+    }
+    renderApp();
+    store.subscribe(renderApp);
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
