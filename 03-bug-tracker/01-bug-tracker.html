@@ -98,6 +98,7 @@
 
         const bugActionDispatchers = Redux.bindActionCreators(bugActionCreators, appStore.dispatch);
 
+        /* BugStats, BugEdit, BugSort, BugList, BugItem */
         class BugTracker extends React.Component{
             state = { newBugName : '' };
 
