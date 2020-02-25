@@ -23,6 +23,7 @@
                 const { productList, newProductName } = this.state;
                 productList.push(newProductName);
                 this.setState({productList : productList });
+                this.props.onListChange(productList);
             }
             render = () => {
                 const productItems = this.state.productList.map((productName, index) => (<li key={index}>{productName}</li>));
@@ -42,18 +43,35 @@
             }
         }
 
-        ReactDOM.render(<Products/>
+        const ProductsCount = (props) => (
+             <div className="stats">
+                <span>Products Count : </span>
+                <span>{props.data}</span>
+            </div>
+        )
+
+        class App extends React.Component{
+            state = { count : 0 };
+
+            listChange = (products) => {
+                this.setState({count : products.length});
+            }
+            render = () => {
+                return(
+                    <div>
+                        <ProductsCount data={this.state.count}/>
+                        <Products onListChange={this.listChange} />
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App/>
             , document.getElementById('root'));
     </script>
 </head>
 <body>
     <h1>Products</h1>
-    <hr>
-    <div className="stats">
-        <span>Products Count : </span>
-        <span>{this.state.productList.length}</span>
-    </div>
-    <hr>
     <div id="root">
         
 
