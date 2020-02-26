@@ -1,13 +1,6 @@
 {
   "bugs": [
     {
-      "id": 4,
-      "name": "Bug - 4",
-      "isClosed": false,
-      "createdAt": "2019-11-21T08:06:47.293Z",
-      "desc": "Elit Lorem excepteur dolore qui tempor ut. Nostrud dolore aliqua ipsum minim officia Lorem anim magna consequat sint qui fugiat. Officia velit culpa nulla excepteur voluptate do aliquip voluptate. Voluptate consequat consectetur exercitation duis quis irure irure."
-    },
-    {
       "id": 5,
       "name": "Bug - 3",
       "createdAt": "2020-01-31T10:12:36.055Z",
@@ -24,6 +17,12 @@
       "name": "Bug - 6",
       "createdAt": "2020-01-31T11:15:17.938Z",
       "desc": "Excepteur enim fugiat laboris sit anim. Consectetur excepteur officia labore incididunt cupidatat cillum ex veniam reprehenderit sit velit. Labore nisi fugiat anim non ut elit id. Labore commodo officia esse excepteur enim commodo aliquip. Et ea laboris veniam anim pariatur nostrud ex reprehenderit dolor. Aliqua Lorem voluptate in exercitation ipsum commodo velit eiusmod velit deserunt sunt do dolor sunt. Irure laborum minim anim occaecat proident exercitation nisi aute id Lorem."
+    },
+    {
+      "id": 8,
+      "name": "Bug - 7",
+      "isClosed": false,
+      "createdAt": "2020-02-26T11:32:09.433Z"
     }
   ],
   "projects": [
