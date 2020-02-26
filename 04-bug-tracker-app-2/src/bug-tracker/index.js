@@ -10,14 +10,29 @@ import BugSort from './views/BugSort';
 import bugActionCreators from './actions';
 
 class BugTracker extends Component {
+    state = {
+        dummy : 100
+    };
+    componentWillMount(){
+
+    }
+    componentDidMount(){
+        this.props.load();
+    }
+    componentWillUnmount(){
+
+    }
+    shouldComponentUpdate(props, state){
+        return false;
+    }
     render = () => {
-        const { bugs, addNew, toggle, removeClosed, load } = this.props;
+        const { bugs, addNew, toggle, removeClosed} = this.props;
         return (
             <Fragment>
                 <BugStats bugs={bugs} />
-                <hr/>
+               {/*  <hr/>
                 <input type="button" value= 'LOAD BUGS' onClick={load} />
-                <hr/>
+                <hr/> */}
                 <BugSort />
                 <BugEdit addNew={addNew} />
                 <BugList {...{ bugs, toggle, removeClosed }} />

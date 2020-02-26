@@ -1,12 +1,6 @@
 {
   "bugs": [
     {
-      "id": 5,
-      "name": "Bug - 3",
-      "createdAt": "2020-01-31T10:12:36.055Z",
-      "desc": "Excepteur enim fugiat laboris sit anim. Consectetur excepteur officia labore incididunt cupidatat cillum ex veniam reprehenderit sit velit. Labore nisi fugiat anim non ut elit id. Labore commodo officia esse excepteur enim commodo aliquip. Et ea laboris veniam anim pariatur nostrud ex reprehenderit dolor. Aliqua Lorem voluptate in exercitation ipsum commodo velit eiusmod velit deserunt sunt do dolor sunt. Irure laborum minim anim occaecat proident exercitation nisi aute id Lorem."
-    },
-    {
       "id": 6,
       "name": "Bug - 5",
       "createdAt": "2020-01-31T11:03:35.717Z",
@@ -23,6 +17,18 @@
       "name": "Bug - 7",
       "isClosed": false,
       "createdAt": "2020-02-26T11:32:09.433Z"
+    },
+    {
+      "id": 9,
+      "name": "asdfsafsa",
+      "isClosed": false,
+      "createdAt": "2020-02-26T12:01:29.677Z"
+    },
+    {
+      "id": 10,
+      "name": "sdfa",
+      "isClosed": false,
+      "createdAt": "2020-02-26T12:06:00.202Z"
     }
   ],
   "projects": [
