@@ -1,8 +1,11 @@
 import React from 'react';
 import BugItem from './BugItem';
+
+/* 
 import bugActionCreators from '../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+*/
 
 const BugList = ({ bugs, toggle, removeClosed }) => {
     const bugItems = bugs.map(bug => (
@@ -18,7 +21,7 @@ const BugList = ({ bugs, toggle, removeClosed }) => {
     )
 }
 
-function mapStateToProps(storeState){
+/* function mapStateToProps(storeState){
     return { bugs : storeState.bugsState.filter(bug => bug.id % 2 === storeState.spinnerState % 2) };
 }
 
@@ -27,4 +30,6 @@ function mapDispatchToProps(dispatch){
     return { toggle, removeClosed };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BugList);
+export default connect(mapStateToProps, mapDispatchToProps)(BugList); */
+
+export default BugList;

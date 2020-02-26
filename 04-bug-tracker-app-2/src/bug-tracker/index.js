@@ -17,8 +17,8 @@ class BugTracker extends Component {
                 <BugStats bugs={bugs} />
                 <BugSort />
                 <BugEdit addNew={addNew} />
-                {/* <BugList {...{ bugs, toggle, removeClosed }} /> */}
-                <BugList />
+                <BugList {...{ bugs, toggle, removeClosed }} />
+                {/* <BugList /> */}
             </Fragment>
         )
     }
@@ -26,8 +26,12 @@ class BugTracker extends Component {
 
 //extracting data
 function mapStateToProps(storeState){
-    const bugs = storeState.bugsState;
-    return { bugs : bugs };
+    const { bugsState : bugs, filterState, spinnerState } = storeState;
+    if (filterState){
+        return { bugs : bugs.filter(bug => bug.id % 2 === spinnerState % 2)}
+    } else {
+        return { bugs : bugs };
+    }
 }
 
 //using dispatch for the component
