@@ -1,7 +1,7 @@
 import React from 'react';
 import BugItem from './BugItem';
 import bugActionCreators from '../actions';
-import { bindActionCreators } from '../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 const BugList = ({ bugs, toggle, removeClosed }) => {
@@ -19,7 +19,7 @@ const BugList = ({ bugs, toggle, removeClosed }) => {
 }
 
 function mapStateToProps(storeState){
-    return { bugs : storeState.bugsState };
+    return { bugs : storeState.bugsState.filter(bug => bug.id % 2 === storeState.spinnerState % 2) };
 }
 
 function mapDispatchToProps(dispatch){
