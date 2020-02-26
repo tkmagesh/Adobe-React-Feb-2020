@@ -98,6 +98,26 @@
 
         const bugActionDispatchers = Redux.bindActionCreators(bugActionCreators, appStore.dispatch);
 
+        const BugItem = ({bug, toggle}) => (
+            <li>
+                <span 
+                    className={ 'bugname ' + (bug.isClosed ? 'closed' : '') } 
+                    onClick={() => toggle(bug)}
+                >{bug.name}</span>
+                <div className="datetime">{bug.createdAt.toString()}</div>
+            </li>
+        );
+
+        const BugStats = ({bugs}) => {
+            const closedCount = bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
+            return(
+                <section className="stats">
+                    <span className="closed">{closedCount}</span>
+                    <span> / </span>
+                    <span>{bugs.length}</span>
+                </section>
+            );
+        }
         /* BugStats, BugEdit, BugSort, BugList, BugItem */
         class BugTracker extends React.Component{
             state = { newBugName : '' };
@@ -106,22 +126,12 @@
                 const { bugs, addNew, toggle, removeClosed } = this.props,
                     { newBugName } = this.state,
                     bugItems = bugs.map(bug => (
-                        <li key={bug.id}>
-                            <span 
-                                className={ 'bugname ' + (bug.isClosed ? 'closed' : '') } 
-                                onClick={() => toggle(bug)}
-                            >{bug.name}</span>
-                            <div className="datetime">{bug.createdAt.toString()}</div>
-                        </li>
+                        <BugItem  key={bug.id} {...{bug, toggle}} />
                     )),
-                    closedCount = bugs.reduce((result, bug) => bug.isClosed ? ++result : result, 0);
+                    
                 return(
                     <React.Fragment>
-                        <section className="stats">
-                            <span className="closed">{closedCount}</span>
-                            <span> / </span>
-                            <span>{bugs.length}</span>
-                        </section>
+                        
                         <section className="sort">
                             <label htmlFor="">Order By :</label>
                             <select>
